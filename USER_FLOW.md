@@ -25,23 +25,23 @@ graph TD
     Main --> TabAccount[Account Tab]
 
     %% Key Actions & Modals
-    TabHome -.->|Quick Add (+)| ModalExpense[Add Expense Modal]
-    TabHome -.->|Edit / Reset| ModalBudget[Edit Budget Modal (Admin)]
+    TabHome -.->|Quick Add| ModalExpense["Add Expense Modal"]
+    TabHome -.->|Edit Budget| ModalBudget["Edit Budget Modal (Admin)"]
 
-    TabExpenses -.->|Add (+)| ModalExpense
-    TabExpenses -.->|Delete Item / All| ActionDeleteExp[Delete Expense (Admin)]
+    TabExpenses -.->|Add Expense| ModalExpense
+    TabExpenses -.->|Delete Expense| ActionDeleteExp["Delete Expense (Admin)"]
 
-    TabUtilities -.->|+ Add Bill| ModalUtility[Add / Edit Utility Modal]
-    ModalUtility -.->|Pick Date| ModalCalendar[Calendar Due Date Picker]
-    TabUtilities -.->|Mark as Paid| ActionAutoPay[Auto-Deduct Budget & Log Expense]
+    TabUtilities -.->|Add Bill| ModalUtility["Add / Edit Utility Modal"]
+    ModalUtility -.->|Pick Date| ModalCalendar["Calendar Due Date Picker"]
+    TabUtilities -.->|Mark as Paid| ActionAutoPay["Auto-Deduct Budget & Log Expense"]
 
-    TabAccount -.->|Edit Avatar| ModalAvatar[Edit Avatar & Photo Modal]
-    TabAccount -.->|Switch Member| ModalSwitcher[Member Switcher Modal]
+    TabAccount -.->|Edit Avatar| ModalAvatar["Edit Avatar & Photo Modal"]
+    TabAccount -.->|Switch Member| ModalSwitcher["Member Switcher Modal"]
     TabAccount -.->|Log Out| Landing
 
     %% Persistent Header
-    Main -.->|Bell Icon| ModalNotif[Notifications Drawer]
-    Main -.->|Member Avatar| ModalSwitcher
+    Main -.->|Notifications| ModalNotif["Notifications Drawer"]
+    Main -.->|Member Profile| ModalSwitcher
 ```
 
 ---
@@ -78,19 +78,19 @@ graph TD
 4. The system validates input, deducts amount from remaining budget, updates progress bar, and adds a notification.
 
 ### Flow B: Manage Utility Bill & Auto-Deduction
-1. **Add Bill:** User taps **"+ Add Bill"** $\rightarrow$ enters bill details $\rightarrow$ selects scheduled due date(s) via Calendar Picker $\rightarrow$ taps **"Save Utility"**.
+1. **Add Bill:** User taps **"+ Add Bill"** → enters bill details → selects scheduled due date(s) via Calendar Picker → taps **"Save Utility"**.
 2. **Mark as Paid (Admin):** Admin taps **"Mark as Paid"** on a pending bill:
    - Utility status changes to **Paid** (green badge).
    - System automatically generates a linked expense under *Bills*.
    - Amount is automatically deducted from monthly budget and added to Recent Activity.
-3. **Undo Payment (Admin):** Admin taps **"Paid (Undo)"** $\rightarrow$ confirms prompt $\rightarrow$ auto-recorded expense is deleted, budget is restored, and bill returns to **Pending**.
+3. **Undo Payment (Admin):** Admin taps **"Paid (Undo)"** → confirms prompt → auto-recorded expense is deleted, budget is restored, and bill returns to **Pending**.
 4. *Member Restriction:* If a non-Admin member attempts to mark paid, edit, or delete a bill, an **"Admin Access Required"** alert appears.
 
 ### Flow C: Edit & Reset Monthly Budget
 1. User taps **"Edit / Reset"** budget pill on Home tab.
    - *If Member:* An alert denies access (*Admin only*).
    - *If Admin:* Opens Edit Budget Modal.
-2. **Edit Limit:** Admin types new budget value $\rightarrow$ taps **"Save Budget"**.
+2. **Edit Limit:** Admin types new budget value → taps **"Save Budget"**.
 3. **Reset Options:** Admin taps **"Reset Monthly Budget..."**:
    - *Option 1 (Reset Limit):* Resets budget limit to ₱15,000 without deleting expenses.
    - *Option 2 (Fresh Month):* Resets budget limit to ₱15,000 and clears all expenses for a fresh billing cycle.
@@ -98,11 +98,11 @@ graph TD
 ### Flow D: Delete Expense (Permission Check)
 1. User taps trash icon on an individual expense (or **"Delete All"** button in Expenses tab).
 2. **Role Check:**
-   - *Member:* Action blocked $\rightarrow$ displays **"Permission Denied"** alert.
-   - *Admin:* Displays confirmation alert $\rightarrow$ on confirmation, expense is removed, amount restored to budget, and notification is logged.
+   - *Member:* Action blocked → displays **"Permission Denied"** alert.
+   - *Admin:* Displays confirmation alert → on confirmation, expense is removed, amount restored to budget, and notification is logged.
 
 ### Flow E: Customize Avatar & Profile Photo
-1. User opens **Account** tab $\rightarrow$ taps avatar camera badge or **"Edit Avatar"** (or accesses via Member Switcher).
+1. User opens **Account** tab → taps avatar camera badge or **"Edit Avatar"** (or accesses via Member Switcher).
 2. User chooses customization method:
    - **Photo Gallery:** Pick and crop image from device photos.
    - **Camera:** Capture a live picture.
@@ -117,4 +117,4 @@ graph TD
    - **Carl Peñaranda** (*Admin / Head of Household*)
    - **Nova Pico** (*Member / Family Member*)
    - **Marienflor Montecalvo** (*Member / Family Member*)
-3. User selects a member $\rightarrow$ active profile switches immediately, adjusting UI permissions and active badges.
+3. User selects a member → active profile switches immediately, adjusting UI permissions and active badges.
