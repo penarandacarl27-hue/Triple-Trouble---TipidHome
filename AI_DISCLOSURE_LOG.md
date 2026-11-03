@@ -26,3 +26,15 @@ SDG Track:** SDG 12 - Responsible Consumption and Production
     help communicate the intended app structure and user experience.
 
 
+
+---
+
+### Product & AI Documentation / Feature Ideation
+
+- **Date & Milestone:** 2026-10-25 | Week 1 Initial Setup
+- **AI Tool & Model:** [ChatGPT / Gemini / Claude]
+- **Member Responsible:** Marien Flor B. Montecalvo (Product & AI Specialist)
+- **Exact Prompt Provided:** "[Ibutang ang prompt nga imong gigamit sa pag-tabang sa app features o SDG mapping]"
+- **AI Output Summary:** [Unsay gihatag o gi-suggest sa AI]
+- **Human Refinement & Edits:** [Giunsa nimo pag-ilis o pagpino para moangay sa inyong app ug sa local context]
+- **Key Learning Takeaway:** [Unsay nahatag nga tabang sa AI sa inyong progress]
